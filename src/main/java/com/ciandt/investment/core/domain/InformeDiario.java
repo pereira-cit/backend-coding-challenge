@@ -70,4 +70,19 @@ public class InformeDiario {
     public Integer getNumeroCotistas() {
         return numeroCotistas;
     }
+
+    public BigDecimal getCaptacaoLiquida() {
+        return captacaoDia.subtract(resgateDia);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof InformeDiario)) {
+            return false;
+        }
+
+        InformeDiario outro = (InformeDiario) obj;
+
+        return this.cnpj.equals(outro.cnpj);
+    }
 }
