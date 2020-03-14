@@ -1,0 +1,9 @@
+Olá, para consumir o serviço que lista os 10 fundos com maior capitação líquida no mês de julho de 2019 siga estes passos:
+
+- Execute a classe backend-coding-challenge-master\src\main\java\com\ciandt\investment\Application.java como Aplicação Java.
+Essa ação vai startar o Spring Boot na porta 8080
+
+Após isto execute no bronser ou consuma o serviço com o endereço abaixo:
+localhost:8080/top10funds2019July/
+
+Serão listados os os 10 fundos com maior capitação líquida no mês de julho de 2019 em saída de texto.
