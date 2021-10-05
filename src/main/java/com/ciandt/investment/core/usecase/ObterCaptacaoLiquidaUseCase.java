@@ -7,6 +7,4 @@ public class ObterCaptacaoLiquidaUseCase {
     public ObterCaptacaoLiquidaUseCase(InformeDiarioBoundary informeDiarioBoundary) {
         this.informeDiarioBoundary = informeDiarioBoundary;
     }
-
-
 }

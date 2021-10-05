@@ -21,7 +21,6 @@ public class InformeDiarioGateway implements InformeDiarioBoundary {
     public List<InformeDiario> getAll() {
 
         try {
-
             final Path path = Paths.get("src/main/resources/informes", "inf_diario_fi_201907.csv");
             Reader reader = Files.newBufferedReader(path, Charset.forName("UTF-8"));
 
