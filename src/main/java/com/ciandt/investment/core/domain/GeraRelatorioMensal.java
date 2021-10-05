@@ -6,19 +6,14 @@ import java.util.stream.Collectors;
 
 public class GeraRelatorioMensal {
 
+    // retorna um Map(CNPJ,CAPTACOES) - da lista de informes diarios
     private Map<String, BigDecimal> captacoesMes(List<InformeDiario> informeDiarios) {
         Map<String, BigDecimal> setCaptacoesMes = new HashMap<>();
         for (InformeDiario informeDiario : informeDiarios) {
             setCaptacoesMes.put(informeDiario.getCnpj(), informeDiario.getCaptacaoDia());
         }
 
-        Map<String, BigDecimal> filterSetCaptacoesMes = new TreeMap<>(Collections.reverseOrder());
-        for (String cnpj : setCaptacoesMes.keySet()) {
-            BigDecimal value = setCaptacoesMes.get(cnpj);
-            // System.out.println(cnpj + "=" + value);
-            filterSetCaptacoesMes.put(cnpj, value);
-        }
-        return filterSetCaptacoesMes;
+        return setCaptacoesMes;
     }
 
     private Map<String, BigDecimal> resgatesMes(List<InformeDiario> informeDiarios) {
@@ -27,14 +22,11 @@ public class GeraRelatorioMensal {
             setCaptacoesMes.put(informeDiario.getCnpj(), informeDiario.getResgateDia());
         }
 
-        Map<String, BigDecimal> filterSetResgatesMes = new TreeMap<>(Collections.reverseOrder());
-        for (String cnpj : setCaptacoesMes.keySet()) {
-            BigDecimal value = setCaptacoesMes.get(cnpj);
-            filterSetResgatesMes.put(cnpj, value);
-        }
-        return filterSetResgatesMes;
+        return setCaptacoesMes;
     }
 
+    // Retorna um Map(CNPJ,CAPTAÇÃOLIQ) - dirença entre Captação e Resgate
+    // Passar lista de iformes e quantas empresas filtrar - retorno em ordem decrescente
     public Map<String, BigDecimal> topFundosCaptacaoLiquida(List<InformeDiario> informeDiarios, int top) {
         Map<String, BigDecimal> setTopFundosCaptacaoLiquida = new HashMap<>();
         Map<String, BigDecimal> captacoesMes = captacoesMes(informeDiarios);
